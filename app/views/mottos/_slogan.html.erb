@@ -1,0 +1,20 @@
+<% mottos.each do |motto| %>
+  <div class="slogan_main" id="js-comment-<%= motto.id %>">
+    <div class="slogan_top">
+    <%= motto.jos%>
+    <%= motto.year %>
+    <span data-comment-id=<%= motto.id %> class="js-edit-comment-button js-edit-comment-button-<%= motto.id %>">
+      <i class="fa fa-edit icons_update fa-border data-comment-id-<%= motto.id %>"></i>
+    </span>
+    <span data-comment-id=<%= motto.id %> class="js-trash-comment-button">    
+      <i class="fa fa-trash icons_trash fa-border "></i>
+    </span>
+    </div>
+    <div class="slogan_body" id="js-comment-label-<%= motto.id %>"><%= motto.body%></div>
+    <textarea id="js-textarea-comment-<%= motto.id %>" class="form-control comment-post-error"><%= motto.body %></textarea>
+    <div id="js-comment-button-<%= motto.id %>" class="edit_and_cx_button">
+    <button data-cancel-id=<%= motto.id %> type="button" class="btn btn-light comment-cancel-button">キャンセル</button>
+    <button data-update-id=<%= motto.id%> type="submit" class="btn btn-success comment-update-button">更新</button>
+  </div>
+  </div>
+<% end %>

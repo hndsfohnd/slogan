@@ -1,0 +1,8 @@
+<div>検索結果</div>
+<% @mottos.each do |motto| %>
+  <div class="result">
+  <%= motto.jos %>
+  <%= motto.body %>
+  <%= motto.year %>
+  </div>
+<%end%>

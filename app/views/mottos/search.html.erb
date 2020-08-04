@@ -1,0 +1,44 @@
+<div class="create">標語作品検索</div>
+<%= search_form_for @search, url: result_mottos_path do |f| %>
+    <div class="field_search", id="motto_search">
+      <%= f.label :body_cont_all, '検索'%>
+      <%= f.search_field :body_cont_all, placeholder:"検索ワードを入力しください(スペース入力で複数検索可、部分一致検索)" %>
+      <div class="check_box1">
+        <%= f.label :jos_eq, "チェックボックス", {:checked => true} %>
+        <div class="hr">
+          <%= f.radio_button :jos_eq,"人権" %>人権
+        </div>
+        <div class="security">
+          <%= f.radio_button :jos_eq,"セキュリティ・個人情報"%>セキュリティ・個人情報
+        </div>
+      </div>
+
+      <div class="check_box2">
+        <%= f.label :jos_eq, "チェックボックス", {:checked => true} %>
+        <div class="2017">
+          <%= f.radio_button :year_eq,2017 %>2017
+        </div>
+        <div class="2018">
+          <%= f.radio_button :year_eq,2018 %>2018
+        </div>
+        <div class="2019">
+          <%= f.radio_button :year_eq,2019 %>2019
+        </div>
+      </div>
+ 　　  <%= f.submit "検索"%>
+    </div>
+<% end %>
+
+<div id="ajax_result">
+</div>
+
+<div class="motto_result">
+　　<%= render 'mottos/slogan', mottos: @mottos %>
+</div>
+<div class="pagenation">
+  <%= paginate @mottos %>
+</div>
+
+<%= link_to "topページへ", root_path %>
+<br>
+<%= link_to "登録ページへ", mottos_path, data: {"turbolinks" => false}  %>

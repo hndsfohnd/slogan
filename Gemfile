@@ -63,3 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'pry-rails'
 gem 'jquery-rails'
+gem 'ransack'
+gem 'font-awesome-rails'
+gem 'kaminari'
+gem 'mysql2'

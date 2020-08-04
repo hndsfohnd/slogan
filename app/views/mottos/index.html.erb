@@ -1,0 +1,25 @@
+<div class="create">標語作品投稿</div>
+<div class="create_slogan">
+<%= form_with model: @motto ,url: mottos_path, method: :post do |f| %>
+  <%= f.select :jos, [["人権"], ["セキュリティ・個人情報"]], include_blank: "選択して下さい" ,class:"choice_jos"%>
+  <%= f.select :year, [[2019], [2018], [2017]], include_blank: "選択して下さい" %>
+  <br>
+  <%= f.text_field :body, {id: "slogan_body"} %>
+
+  <%= f.submit "登録" ,class:"create_box"%>
+<% end %>
+</div>
+
+
+<div id="motto_create">
+   <p class="products">作品一覧</p>
+　　<%= render 'mottos/slogan', mottos: @mottos %>
+</div>
+
+<div class="pagenation">
+  <%= paginate @mottos %>
+</div>
+
+<%= link_to "topページへ", root_path, data: {"turbolinks" => false}  %>
+<br>
+<%= link_to "検索ページへ", search_mottos_path , data: {"turbolinks" => false} %>
